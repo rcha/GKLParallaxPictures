@@ -7,6 +7,8 @@
 //
 
 #import "GKLParallaxPicturesViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "NSFileManager+Directories.h"
 
 @interface GKLParallaxPicturesViewController ()
 
@@ -88,7 +90,9 @@ static CGFloat PageControlHeight = 20.0f;
         [imageView setImage:image];
         //                allow users to submit URLs
     } else if ([image isKindOfClass:[NSString class]]){
-        [self loadImageFromURLString:(NSString*)image forImageView:imageView];
+        [imageView setImageWithURL:[NSURL fileURLWithPath:image] placeholderImage:[UIImage imageWithContentsOfFile:[[NSFileManager defaultManager] pathForResource:@"placeholder.jpg"]]];
+
+        //[self loadImageFromURLString:(NSString*)image forImageView:imageView];
     }
     [imageView setContentMode:UIViewContentModeScaleAspectFill];
     [imageView setClipsToBounds:YES];
