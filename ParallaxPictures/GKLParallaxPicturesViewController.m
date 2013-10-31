@@ -8,7 +8,7 @@
 
 #import "GKLParallaxPicturesViewController.h"
 #import "UIImageView+AFNetworking.h"
-#import "NSFileManager+Directories.h"
+#import <TeradekSDKPrivate/NSFileManager+Directories.h>
 
 @interface GKLParallaxPicturesViewController ()
 
